@@ -1,0 +1,50 @@
+[
+    {
+        "collection": "warehouses",
+        "data": [
+            {
+                "name": "Main Distribution Center",
+                "location": "Aisle 1-4, Sector A",
+                "capacity": 5000,
+                "isActive": true
+            }
+        ]
+    },
+    {
+        "collection": "products",
+        "data": [
+            {
+                "name": "Glow Serum Vitamin C",
+                "price": 45,
+                "stock": 150,
+                "category": "Skincare",
+                "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                "name": "Hydrating Face Cream",
+                "price": 32,
+                "stock": 85,
+                "category": "Skincare",
+                "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                "name": "Gentle Foaming Cleanser",
+                "price": 24,
+                "stock": 200,
+                "category": "Skincare",
+                "image": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80&w=800"
+            }
+        ]
+    },
+    {
+        "collection": "admins",
+        "data": [
+            {
+                "name": "Super Admin",
+                "email": "admin@fleure.com",
+                "password": "hashed_password_here (admin123)",
+                "role": "superadmin"
+            }
+        ]
+    }
+]

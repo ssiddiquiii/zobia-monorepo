@@ -1,0 +1,9 @@
+{
+  "name": "zobia-client-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "ai_demand_supply_app",
+    "ai_demand_supply_balancer"
+  ]
+}
