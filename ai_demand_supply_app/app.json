@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "AI Demand Supply App",
+    "slug": "ai_demand_supply_app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#2563eb"
+      },
+      "package": "com.ssiddiquii.ai_demand_supply_app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ],
+    "scheme": "ai-demand-supply-app",
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "6bce5f1d-beae-4d0a-bcff-51156c9721fe"
+      }
+    }
+  }
+}
