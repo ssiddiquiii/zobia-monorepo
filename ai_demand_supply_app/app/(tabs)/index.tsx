@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import {
   View, Text, ScrollView, TouchableOpacity,
-  FlatList, ActivityIndicator, RefreshControl, Image, Dimensions, TextInput
+  FlatList, ActivityIndicator, RefreshControl, Image, Dimensions, TextInput, ImageBackground
 } from 'react-native';
 import { router, useFocusEffect } from 'expo-router';
 import { useSelector, useDispatch } from 'react-redux';
@@ -122,15 +122,18 @@ export default function HomeScreen() {
         </View>
 
         {/* Hero Section */}
-        <View className="mx-6 mt-8 rounded-3xl overflow-hidden bg-brand-light shadow-md shadow-brand/20" style={{ height: 160 }}>
-           <View className="absolute inset-0 bg-black/10" />
-           <View className="flex-1 p-6 justify-center">
-              <Text className="text-white text-xs font-bold tracking-widest uppercase mb-2">New Collection</Text>
-              <Text className="text-white text-2xl font-bold w-2/3">Discover Premium Quality</Text>
-              <TouchableOpacity className="bg-white px-4 py-2 rounded-full self-start mt-4" onPress={() => router.push('/(tabs)/products')}>
-                 <Text className="text-brand text-xs font-bold uppercase">Shop Now</Text>
-              </TouchableOpacity>
-           </View>
+        <View className="mx-6 mt-8 rounded-3xl overflow-hidden shadow-md shadow-brand/20" style={{ height: 160 }}>
+           <ImageBackground 
+             source={require('../../assets/images/admin-banner.jpg')} 
+             style={{ flex: 1, justifyContent: 'center' }}
+             resizeMode="cover"
+           >
+             <View className="absolute inset-0 bg-black/30" />
+             <View className="p-6">
+                <Text className="text-white text-[22px] font-bold w-[100%] leading-8">Welcome to Your Skincare Hub</Text>
+                <Text className="text-white/90 text-xs mt-1 w-[95%] leading-5">Manage your skincare inventory, track orders, and grow your beauty business with ease.</Text>
+             </View>
+           </ImageBackground>
         </View>
 
         {/* Categories (Shop By Type) */}
