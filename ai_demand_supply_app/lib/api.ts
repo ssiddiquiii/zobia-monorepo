@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const BASE_URL_KEY = 'SERVER_BASE_URL';
-const DEFAULT_URL = 'http://192.168.100.10:3000'; // fallback
+const DEFAULT_URL = 'http://192.168.0.103:3000'; // fallback
 
 export const getBaseUrl = async (): Promise<string> => {
   const saved = await AsyncStorage.getItem(BASE_URL_KEY);
