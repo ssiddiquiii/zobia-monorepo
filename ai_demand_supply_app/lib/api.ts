@@ -1,7 +1,19 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import Constants from 'expo-constants';
+
 const BASE_URL_KEY = 'SERVER_BASE_URL';
-const DEFAULT_URL = 'http://192.168.0.103:3000'; // fallback
+
+// Dynamically determine the computer's local IP where Expo is running
+let dynamicLocalUrl = 'http://192.168.0.103:3000'; // ultimate fallback
+
+if (__DEV__ && Constants.expoConfig?.hostUri) {
+  // hostUri usually looks like "192.168.1.5:8081"
+  const hostIp = Constants.expoConfig.hostUri.split(':')[0];
+  dynamicLocalUrl = `http://${hostIp}:3000`;
+}
+
+const DEFAULT_URL = dynamicLocalUrl;
 
 export const getBaseUrl = async (): Promise<string> => {
   const saved = await AsyncStorage.getItem(BASE_URL_KEY);
