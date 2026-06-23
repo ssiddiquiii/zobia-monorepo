@@ -1,10 +1,36 @@
-# Zobia Demand & Supply App 🚀
+# Fleure Beauty 🚀
 
-Welcome to the Zobia project! This repository contains both the **Mobile Application** (built with Expo) and the **Web Admin Portal** (built with Next.js).
+Welcome to the **Fleure Beauty** project! This repository contains a complete solution featuring both a Mobile Application for end-users and a Web Admin Portal for management.
+
+## 📦 Tech Stack
+
+**1. Mobile Application (App)**
+- Framework: React Native with Expo
+- UI Styling: NativeWind (Tailwind CSS for React Native)
+- State Management: Redux Toolkit
+- Routing: Expo Router
+
+**2. Web Admin Portal & Backend (Web)**
+- Framework: Next.js 14
+- UI Styling: Tailwind CSS & Lucide Icons
+- Database: MongoDB & Mongoose
+- API: Next.js API Routes
 
 ---
 
-## 🛠️ How to Run the Project Locally
+## 🛠️ Prerequisites (What you need to install)
+
+Before running the project, you must have the following installed on your laptop/computer:
+
+1. **Node.js:** This is required to run the code. 
+   - Download the LTS version from: [https://nodejs.org](https://nodejs.org/)
+   - Install it with the default settings.
+2. **Code Editor:** Visual Studio Code (VS Code) is recommended.
+3. **Expo Go (On Mobile):** Download the "Expo Go" app from the Google Play Store (Android) or Apple App Store (iOS) on your phone.
+
+---
+
+## 🚀 How to Run the Project Locally
 
 Follow these simple steps to get both the Web and Mobile App running on your computer.
 
@@ -40,6 +66,6 @@ npx expo start -c
 ### Step 5: Connect Your Phone
 1. Make sure your laptop/computer and your mobile phone are connected to the **same Wi-Fi network**.
 2. A large QR Code will appear in the terminal where you ran `npx expo start -c`.
-3. Open the **Expo Go** app on your phone (download from App Store/Play Store if you don't have it).
+3. Open the **Expo Go** app on your phone.
 4. Scan the QR Code. 
-5. The Zobia app will load on your phone and connect directly to your local web server!
+5. The Fleure Beauty app will load on your phone and connect directly to your local web server automatically!
