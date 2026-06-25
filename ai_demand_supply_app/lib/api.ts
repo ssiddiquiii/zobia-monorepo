@@ -4,11 +4,14 @@ import Constants from 'expo-constants';
 
 const BASE_URL_KEY = 'SERVER_BASE_URL';
 
-// Dynamically determine the computer's local IP where Expo is running
-let dynamicLocalUrl = 'http://192.168.0.103:3000'; // ultimate fallback
+// In development: auto-detect local IP
+// In production (APK): use Vercel deployed URL
+const PRODUCTION_URL = 'https://YOUR-APP.vercel.app'; // ← Vercel URL yahan lagao
+
+let dynamicLocalUrl = PRODUCTION_URL; // default: production
 
 if (__DEV__ && Constants.expoConfig?.hostUri) {
-  // hostUri usually looks like "192.168.1.5:8081"
+  // Development: auto-detect laptop's local IP
   const hostIp = Constants.expoConfig.hostUri.split(':')[0];
   dynamicLocalUrl = `http://${hostIp}:3000`;
 }
