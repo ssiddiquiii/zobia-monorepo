@@ -10,11 +10,14 @@ const PRODUCTION_URL = 'https://zobia-monorepo.vercel.app'; // Production server
 
 let dynamicLocalUrl = PRODUCTION_URL; // default: production
 
+// Commented out local IP detection so Expo Go connects to Vercel directly for the client
+/*
 if (__DEV__ && Constants.expoConfig?.hostUri) {
   // Development: auto-detect laptop's local IP
   const hostIp = Constants.expoConfig.hostUri.split(':')[0];
   dynamicLocalUrl = `http://${hostIp}:3000`;
 }
+*/
 
 const DEFAULT_URL = dynamicLocalUrl;
 
