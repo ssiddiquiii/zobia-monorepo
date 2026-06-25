@@ -12,6 +12,17 @@ if (!JWT_SECRET) {
     throw new Error('Please define the JWT_SECRET environment variable inside .env');
 }
 
+const CORS_HEADERS = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+};
+
+// Handle CORS preflight requests from mobile app
+export async function OPTIONS() {
+    return NextResponse.json({}, { headers: CORS_HEADERS });
+}
+
 export async function POST(request: Request) {
     try {
         await dbConnect();
@@ -71,12 +82,12 @@ export async function POST(request: Request) {
             { expiresIn: '1d' }
         );
 
-        // Set cookie
+        // Set cookie (for web browser)
         const cookieStore = await cookies();
         cookieStore.set('token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'strict',
+            sameSite: 'none',  // Allow cross-origin for mobile app
             maxAge: 86400 // 1 day
         });
 
@@ -92,17 +103,20 @@ export async function POST(request: Request) {
             {
                 message: 'Login successful',
                 user: userData,
-                admin: role === 'admin' ? userData : null, // Support for frontend expecting 'admin'
+                admin: role === 'admin' ? userData : null,
                 token
             },
-            { status: 200 }
+            { 
+                status: 200,
+                headers: CORS_HEADERS
+            }
         );
 
     } catch (error: any) {
         console.error('Login error:', error);
         return NextResponse.json(
             { message: 'Error logging in', error: error.message },
-            { status: 500 }
+            { status: 500, headers: CORS_HEADERS }
         );
     }
 }

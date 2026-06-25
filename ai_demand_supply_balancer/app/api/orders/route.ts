@@ -6,6 +6,17 @@ import Customer from '@/models/Customer';
 import Notification from '@/models/Notification';
 import { checkLowStockAndNotify } from '@/lib/notifications';
 
+const CORS_HEADERS = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+};
+
+// Handle CORS preflight from mobile app
+export async function OPTIONS() {
+    return NextResponse.json({}, { headers: CORS_HEADERS });
+}
+
 export async function GET(request: Request) {
     try {
         await dbConnect();
@@ -16,10 +27,10 @@ export async function GET(request: Request) {
         const orders = await Order.find(filter)
             .sort({ date: -1 })
             .populate('customerId', 'email');
-        return NextResponse.json(orders);
+        return NextResponse.json(orders, { headers: CORS_HEADERS });
     } catch (error) {
         const message = error instanceof Error ? error.message : 'Error fetching orders';
-        return NextResponse.json({ message: 'Error fetching orders', error: message }, { status: 500 });
+        return NextResponse.json({ message: 'Error fetching orders', error: message }, { status: 500, headers: CORS_HEADERS });
     }
 }
 
@@ -85,10 +96,10 @@ export async function POST(request: Request) {
         }
 
         console.log('Order created:', order._id);
-        return NextResponse.json(order, { status: 201 });
+        return NextResponse.json(order, { status: 201, headers: CORS_HEADERS });
     } catch (error) {
         const message = error instanceof Error ? error.message : 'Error creating order';
         console.error('Checkout error API:', error);
-        return NextResponse.json({ message: 'Error creating order', error: message }, { status: 400 });
+        return NextResponse.json({ message: 'Error creating order', error: message }, { status: 400, headers: CORS_HEADERS });
     }
 }
