@@ -6,7 +6,7 @@ const BASE_URL_KEY = 'SERVER_BASE_URL';
 
 // In development: auto-detect local IP
 // In production (APK): use Vercel deployed URL
-const PRODUCTION_URL = 'https://YOUR-APP.vercel.app'; // ← Vercel URL yahan lagao
+const PRODUCTION_URL = 'https://zobia-monorepo.vercel.app'; // Production server
 
 let dynamicLocalUrl = PRODUCTION_URL; // default: production
 
